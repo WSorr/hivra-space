@@ -1,0 +1,107 @@
+/* Общие стили */
+body {
+  background: #050311; /* тёмный космический фон */
+  font-family: 'Inter', system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  color: white;
+  margin: 0;
+  padding: 0;
+}
+
+a {
+  text-decoration: none;
+}
+
+h1, p {
+  margin: 0;
+}
+
+/* Заголовки и текст */
+.title {
+  font-size: 5rem;
+  font-weight: 700;
+  /* fallback color if gradient/text-clip not supported */
+  color: #00eaff;
+  background: linear-gradient(90deg, #00eaff, #a020f0);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  /* leave plain color for browsers that don't support -webkit-text-fill-color */
+  /* color already set above as fallback */
+}
+
+.subtitle {
+  font-size: 1.5rem;
+  margin-top: 1rem;
+  color: #b0b0b0;
+}
+
+/* Кнопки */
+.btn {
+  display: inline-block;
+  padding: 1rem 2rem;
+  border-radius: 50px;
+  margin: 1rem;
+  font-size: 1.25rem;
+  text-transform: uppercase;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  text-align: center;
+}
+
+.neon-blue {
+  background: transparent;
+  border: 2px solid #00eaff;
+  color: #00eaff;
+}
+
+.neon-purple {
+  background: transparent;
+  border: 2px solid #a020f0;
+  color: #a020f0;
+}
+
+.btn:hover {
+  background-color: rgba(255, 255, 255, 0.06);
+  transform: translateY(-2px);
+}
+
+/* Таймер */
+.timer {
+  display: flex;
+  gap: 2rem;
+  margin-top: 2rem;
+  align-items: center;
+}
+
+.unit {
+  font-size: 2rem;
+  font-weight: 700;
+  /* same gradient text approach as .title */
+  color: #00eaff; /* fallback */
+  background: linear-gradient(90deg, #00eaff, #a020f0);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Навигация */
+.nav {
+  display: flex;
+  gap: 1.5rem;
+  margin-left: auto;
+  align-items: center;
+}
+
+.nav a {
+  color: #00eaff;
+  font-size: 1.25rem;
+  text-transform: uppercase;
+  font-weight: 600;
+}
+
+.nav a:hover,
+.nav a:focus {
+  text-decoration: underline;
+  outline: none;
+}

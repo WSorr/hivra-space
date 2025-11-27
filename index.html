@@ -1,0 +1,60 @@
+﻿<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>HIVRA — Your flight space in the Droneverse</title>
+  <meta name="description" content="HIVRA — Droneverse holographic countdown." />
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <div class="topbar">
+    <a class="brand" href="/" aria-label="HIVRA Home">
+      <!-- Логотип в формате PNG -->
+      <img src="assets/logo.png" alt="HIVRA Logo" width="48" height="48">
+      <span class="brand-text">HIVRA</span>
+    </a>
+
+    <nav class="nav">
+      <ul class="nav-list">
+        <li><a class="nav-link">Home</a></li>
+        <li><a class="nav-link">Docs</a></li>
+        <li><a class="nav-link">HiveNet</a></li>
+        <li><a class="nav-link">Relay</a></li>
+        <li><a class="nav-link">Contact</a></li>
+
+        <li class="dropdown" id="lang-dropdown">
+          <button id="drop-btn" class="drop-trigger">Language ▾</button>
+          <ul id="lang-menu" class="drop-menu">
+            <li><button class="lang" data-lang="en">English</button></li>
+            <li><button class="lang" data-lang="fr">Français</button></li>
+            <li><button class="lang" data-lang="es">Español</button></li>
+            <li><button class="lang" data-lang="ko">한국어</button></li>
+          </ul>
+        </li>
+      </ul>
+    </nav>
+  </div>
+
+  <main class="main">
+    <section class="hero">
+      <h1 class="site-title">Your flight space in the Droneverse</h1>
+      <p class="subtitle">Countdown to 16 March 2026</p>
+
+      <div class="countdown-wrap">
+        <div class="card"><div class="value"><span id="days" class="digit">0</span></div><div class="label">Days</div></div>
+        <div class="card"><div class="value"><span id="hours" class="digit">00</span></div><div class="label">Hours</div></div>
+        <div class="card"><div class="value"><span id="minutes" class="digit">00</span></div><div class="label">Minutes</div></div>
+        <div class="card"><div class="value"><span id="seconds" class="digit">00</span></div><div class="label">Seconds</div></div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    &copy; 2025 HIVRA — Droneverse. Token: HIVR.
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
