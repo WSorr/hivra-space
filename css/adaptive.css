@@ -1,0 +1,7 @@
+/* adaptive.css - минимальные media queries */
+@media (max-width: 768px) {
+  .header .logo-title { flex-direction: column; align-items: center; gap: 8px; }
+  .countdown { flex-wrap: wrap; justify-content: center; gap: 12px; }
+  .countdown .segment { flex: 1 1 80px; min-width: 60px; text-align: center; }
+  img { max-width: 100%; height: auto; }
+}
