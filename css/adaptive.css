@@ -1,7 +1,31 @@
-/* adaptive.css - минимальные media queries */
+/* adaptive.css - корректная адаптивность для мобильных */
 @media (max-width: 768px) {
-  .header .logo-title { flex-direction: column; align-items: center; gap: 8px; }
-  .countdown { flex-wrap: wrap; justify-content: center; gap: 12px; }
-  .countdown .segment { flex: 1 1 80px; min-width: 60px; text-align: center; }
-  img { max-width: 100%; height: auto; }
+  header {
+    flex-direction: column;
+    align-items: center;
+  }
+  .header .logo-title {
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+  }
+  nav {
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+  }
+  .countdown {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 12px;
+  }
+  .countdown .segment {
+    flex: 1 1 80px;
+    min-width: 60px;
+    text-align: center;
+  }
+  img {
+    max-width: 100%;
+    height: auto;
+  }
 }
