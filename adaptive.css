@@ -1,0 +1,50 @@
+/* Mobile styles like flare.network */
+@media (max-width: 768px) {
+    header {
+        padding: 15px 20px !important;
+        flex-wrap: wrap;
+        justify-content: space-between;
+    }
+    
+    .logo img {
+        max-height: 30px;
+        width: auto;
+    }
+    
+    /* Hide desktop menu, show mobile toggle */
+    .nav-links {
+        display: none;
+        width: 100%;
+        order: 3;
+        margin-top: 15px;
+    }
+    
+    .nav-links.active {
+        display: flex;
+        flex-direction: column;
+    }
+    
+    .nav-links li {
+        margin: 10px 0;
+        text-align: center;
+    }
+    
+    .menu-toggle {
+        display: block;
+        background: none;
+        border: none;
+        font-size: 24px;
+        cursor: pointer;
+    }
+}
+
+/* iPhone 13 specific */
+@media (max-width: 390px) {
+    header {
+        padding: 12px 15px !important;
+    }
+    
+    .logo img {
+        max-height: 25px;
+    }
+}

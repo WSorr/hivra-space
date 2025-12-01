@@ -1,0 +1,25 @@
+--- index.html.old
++++ index.html.new
+@@ -X,Y +X,Y @@
+ <header>
+     <a href="#" class="logo">
+         <img src="assets/logo.png" alt="HIVRA Space Logo">
+     </a>
++    <button class="menu-toggle" aria-label="Toggle menu">
++        <span></span>
++        <span></span>
++        <span></span>
++    </button>
+     <nav>
+         <ul class="nav-links">
+-            <li><a href="#home">Home</a></li>
+-            <li><a href="#about">About</a></li>
+-            <li><a href="#services">Services</a></li>
+-            <li><a href="#contact">Contact</a></li>
++            <li><a href="#home">Home</a></li>
++            <li><a href="#about">About</a></li>
++            <li><a href="#services">Services</a></li>
++            <li><a href="#contact">Contact</a></li>
+         </ul>
+     </nav>
+ </header>
