@@ -252,6 +252,87 @@
         }
         
         /* COUNTER GRID */
+/* FIX COUNTER - ONE LINE DESIGN */
+@media (max-width: 1024px) {
+    .counter-grid {
+        grid-template-columns: repeat(2, 1fr) !important;
+        gap: 12px !important;
+    }
+    
+    .counter-item {
+        display: flex !important;
+        flex-direction: row !important;
+        align-items: center !important;
+        justify-content: center !important;
+        gap: 15px !important;
+        padding: 20px 15px !important;
+        min-height: auto !important;
+    }
+    
+    .counter-number {
+        font-size: 2.5rem !important;
+        margin-bottom: 0 !important;
+        min-width: 60px !important;
+        text-align: center !important;
+    }
+    
+    .counter-label {
+        text-align: left !important;
+        margin-top: 0 !important;
+        font-size: 1rem !important;
+        min-width: 80px !important;
+    }
+}
+
+/* TABLET SPECIFIC */
+@media (min-width: 769px) and (max-width: 1024px) {
+    .counter-grid {
+        grid-template-columns: repeat(4, 1fr) !important;
+    }
+    
+    .counter-item {
+        flex-direction: column !important;
+        gap: 10px !important;
+        padding: 25px 15px !important;
+    }
+    
+    .counter-number {
+        font-size: 2.8rem !important;
+    }
+    
+    .counter-label {
+        text-align: center !important;
+    }
+}
+
+/* MOBILE HORIZONTAL FIX */
+@media (max-width: 768px) {
+    .counter-item {
+        flex-direction: row !important;
+        justify-content: space-between !important;
+        padding: 15px 20px !important;
+    }
+    
+    .counter-number {
+        font-size: 2.2rem !important;
+        min-width: 50px !important;
+    }
+    
+    .counter-label {
+        font-size: 1.1rem !important;
+        text-align: right !important;
+    }
+}
+
+/* COMPACT DESIGN FOR ALL SCREENS */
+.counter-item {
+    transition: all 0.3s ease !important;
+}
+
+.counter-item:hover {
+    transform: none !important;
+    box-shadow: var(--shadow) !important;
+}
         .counter-grid {
             display: grid;
             grid-template-columns: repeat(4, 1fr);
