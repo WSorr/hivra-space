@@ -48,3 +48,38 @@
         max-height: 25px;
     }
 }
+
+/* Fix huge counter on mobile */
+@media (max-width: 768px) {
+    .counter-section {
+        padding: 20px 10px !important;
+    }
+    
+    .counter-item {
+        margin: 5px !important;
+        padding: 10px !important;
+        min-width: 70px !important;
+    }
+    
+    .counter {
+        font-size: 1.8rem !important;
+        font-weight: bold;
+    }
+    
+    .counter-label {
+        font-size: 0.7rem !important;
+        margin-top: 5px;
+    }
+}
+
+/* iPhone 13 specific counter fix */
+@media (max-width: 390px) {
+    .counter {
+        font-size: 1.5rem !important;
+    }
+    
+    .counter-item {
+        min-width: 60px !important;
+        padding: 8px !important;
+    }
+}
