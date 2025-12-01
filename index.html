@@ -2,66 +2,539 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>HIVRA - Your flight space in the Droneverse</title>
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="adaptive.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+    <title>HIVRA Space | Your Flight Space in the Droneverse</title>
     <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <style>
+        /* CSS RESET */
+        *, *::before, *::after { box-sizing: border-box; }
+        * { margin: 0; padding: 0; }
+        html { scroll-behavior: smooth; }
+        body { 
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: #fff;
+            overflow-x: hidden;
+        }
+        img { max-width: 100%; height: auto; display: block; }
+        a { text-decoration: none; color: inherit; }
+        button { background: none; border: none; cursor: pointer; font-family: inherit; }
+        
+        /* VARIABLES */
+        :root {
+            --primary: #2563eb;
+            --primary-dark: #1d4ed8;
+            --secondary: #7c3aed;
+            --text: #1f2937;
+            --text-light: #6b7280;
+            --bg: #ffffff;
+            --bg-light: #f8fafc;
+            --border: #e5e7eb;
+            --radius: 12px;
+            --shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
+            --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        /* CONTAINER */
+        .container {
+            width: 100%;
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* HEADER */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--border);
+            z-index: 1000;
+            padding: 16px 0;
+        }
+        
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        
+        .logo-img {
+            height: 40px;
+            width: auto;
+        }
+        
+        .logo-text {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary);
+        }
+        
+        /* DESKTOP NAV */
+        .desktop-nav {
+            display: flex;
+            gap: 32px;
+        }
+        
+        .nav-link {
+            font-weight: 500;
+            color: var(--text);
+            position: relative;
+            padding: 8px 0;
+            transition: var(--transition);
+        }
+        
+        .nav-link:hover {
+            color: var(--primary);
+        }
+        
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--primary);
+            transition: var(--transition);
+        }
+        
+        .nav-link:hover::after {
+            width: 100%;
+        }
+        
+        /* MOBILE MENU TOGGLE */
+        .menu-toggle {
+            display: none;
+            flex-direction: column;
+            justify-content: space-between;
+            width: 32px;
+            height: 24px;
+            background: transparent;
+            border: none;
+            z-index: 1001;
+        }
+        
+        .menu-toggle span {
+            display: block;
+            width: 100%;
+            height: 3px;
+            background: var(--text);
+            border-radius: 2px;
+            transition: var(--transition);
+        }
+        
+        .menu-toggle.active span:nth-child(1) {
+            transform: rotate(45deg) translate(6px, 6px);
+        }
+        
+        .menu-toggle.active span:nth-child(2) {
+            opacity: 0;
+        }
+        
+        .menu-toggle.active span:nth-child(3) {
+            transform: rotate(-45deg) translate(6px, -6px);
+        }
+        
+        /* MOBILE NAV */
+        .mobile-nav {
+            position: fixed;
+            top: 0;
+            right: -100%;
+            width: 280px;
+            height: 100vh;
+            background: var(--bg);
+            padding: 100px 32px 32px;
+            box-shadow: -10px 0 30px rgba(0, 0, 0, 0.1);
+            transition: var(--transition);
+            z-index: 999;
+        }
+        
+        .mobile-nav.active {
+            right: 0;
+        }
+        
+        .mobile-nav-links {
+            display: flex;
+            flex-direction: column;
+            gap: 24px;
+        }
+        
+        .mobile-nav-link {
+            font-size: 1.1rem;
+            font-weight: 500;
+            padding: 12px 0;
+            border-bottom: 1px solid var(--border);
+        }
+        
+        /* OVERLAY */
+        .overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            opacity: 0;
+            visibility: hidden;
+            transition: var(--transition);
+            z-index: 998;
+        }
+        
+        .overlay.active {
+            opacity: 1;
+            visibility: visible;
+        }
+        
+        /* HERO SECTION */
+        .hero {
+            padding: 160px 0 100px;
+            text-align: center;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000" opacity="0.1"><circle cx="500" cy="500" r="400" fill="none" stroke="white" stroke-width="2"/></svg>');
+            background-size: cover;
+        }
+        
+        .hero h1 {
+            font-size: 3.5rem;
+            font-weight: 800;
+            margin-bottom: 24px;
+            line-height: 1.2;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .hero p {
+            font-size: 1.25rem;
+            opacity: 0.9;
+            max-width: 600px;
+            margin: 0 auto 48px;
+            position: relative;
+            z-index: 1;
+        }
+        
+        /* COUNTDOWN SECTION */
+        .countdown {
+            padding: 100px 0;
+            background: var(--bg-light);
+        }
+        
+        .countdown-title {
+            text-align: center;
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 60px;
+            color: var(--text);
+        }
+        
+        /* COUNTER GRID */
+        .counter-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 24px;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+        
+        .counter-item {
+            background: var(--bg);
+            padding: 40px 20px;
+            border-radius: var(--radius);
+            box-shadow: var(--shadow);
+            text-align: center;
+            transition: var(--transition);
+        }
+        
+        .counter-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+        }
+        
+        .counter-number {
+            font-size: 3.5rem;
+            font-weight: 800;
+            color: var(--primary);
+            margin-bottom: 12px;
+            line-height: 1;
+        }
+        
+        .counter-label {
+            font-size: 1rem;
+            color: var(--text-light);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-weight: 600;
+        }
+        
+        /* FOOTER */
+        footer {
+            padding: 60px 0;
+            text-align: center;
+            border-top: 1px solid var(--border);
+        }
+        
+        .footer-text {
+            color: var(--text-light);
+            font-size: 0.95rem;
+        }
+        
+        .token-badge {
+            display: inline-block;
+            background: var(--primary);
+            color: white;
+            padding: 6px 16px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            margin-left: 12px;
+        }
+        
+        /* RESPONSIVE DESIGN */
+        
+        /* Tablet */
+        @media (max-width: 1024px) {
+            .hero h1 { font-size: 2.8rem; }
+            .counter-number { font-size: 3rem; }
+            .counter-grid { gap: 20px; }
+        }
+        
+        /* Mobile */
+        @media (max-width: 768px) {
+            .container { padding: 0 16px; }
+            
+            /* Header */
+            .menu-toggle { display: flex; }
+            .desktop-nav { display: none; }
+            
+            /* Hero */
+            .hero { padding: 140px 0 80px; }
+            .hero h1 { font-size: 2.2rem; }
+            .hero p { font-size: 1.1rem; padding: 0 16px; }
+            
+            /* Counter */
+            .counter-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 16px;
+                padding: 0 16px;
+            }
+            
+            .counter-item { padding: 32px 16px; }
+            .counter-number { font-size: 2.5rem; }
+            .countdown-title { font-size: 1.75rem; margin-bottom: 40px; }
+        }
+        
+        /* iPhone 13 & Small Mobile */
+        @media (max-width: 428px) {
+            .hero h1 { font-size: 2rem; }
+            .hero p { font-size: 1rem; }
+            
+            .counter-grid {
+                grid-template-columns: 1fr;
+                max-width: 300px;
+            }
+            
+            .counter-item { padding: 28px 16px; }
+            .counter-number { font-size: 2.2rem; }
+            
+            .logo-text { font-size: 1.25rem; }
+            .logo-img { height: 32px; }
+        }
+        
+        /* Landscape */
+        @media (max-height: 500px) and (orientation: landscape) {
+            .hero { padding: 120px 0 60px; }
+            .hero h1 { font-size: 2rem; }
+            .counter-grid { grid-template-columns: repeat(4, 1fr); }
+        }
+        
+        /* Dark mode support */
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --bg: #0f172a;
+                --bg-light: #1e293b;
+                --text: #f1f5f9;
+                --text-light: #94a3b8;
+                --border: #334155;
+            }
+            
+            body { background: var(--bg); color: var(--text); }
+            .counter-item { background: var(--bg-light); }
+        }
+    </style>
 </head>
 <body>
-    <div class="background-overlay"></div>
-    
-    <div class="container">
-        <nav class="navbar">
-            <div class="logo-container">
-                <img src="./assets/logo.png" alt="HIVRA Logo" class="logo-img">
-                <span class="logo-text">HIVRA</span>
-            </div>
-            <ul class="nav-links">
-                <li><a href="#home">Home</a></li>
-                <li><a href="#docs">Docs</a></li>
-                <li><a href="#hivenet">HiveNet</a></li>
-                <li><a href="#relay">Relay</a></li>
-                <li><a href="#contact">Contact</a></li>
-                        <li><a href="#es">Español</a></li>
-                        <li><a href="#fr">Français</a></li>
-                        <li><a href="#de">Deutsch</a></li>
-                    </ul>
-                </li>
-            </ul>
-        </nav>
-
-        <main class="hero">
-            <h1 class="site-title">Your flight space in the Droneverse</h1>
-            <p class="hero-subtitle">Countdown to 16 March 2026</p>
+    <!-- HEADER -->
+    <header>
+        <div class="container header-content">
+            <a href="#" class="logo">
+                <img src="assets/logo.png" alt="HIVRA Space" class="logo-img">
+                <span class="logo-text">HIVRA SPACE</span>
+            </a>
             
-            <div class="countdown-timer">
-                <div class="countdown-item">
-                    <span id="days" class="countdown-number">104</span>
-                    <span class="countdown-label">DAYS</span>
+            <!-- Desktop Navigation -->
+            <nav class="desktop-nav">
+                <a href="#home" class="nav-link">Home</a>
+                <a href="#droneverse" class="nav-link">Droneverse</a>
+                <a href="#token" class="nav-link">Token</a>
+                <a href="#contact" class="nav-link">Contact</a>
+            </nav>
+            
+            <!-- Mobile Menu Toggle -->
+            <button class="menu-toggle" aria-label="Toggle menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+        
+        <!-- Mobile Navigation -->
+        <nav class="mobile-nav">
+            <div class="mobile-nav-links">
+                <a href="#home" class="mobile-nav-link">Home</a>
+                <a href="#droneverse" class="mobile-nav-link">Droneverse</a>
+                <a href="#token" class="mobile-nav-link">Token</a>
+                <a href="#contact" class="mobile-nav-link">Contact</a>
+            </div>
+        </nav>
+        
+        <!-- Overlay -->
+        <div class="overlay"></div>
+    </header>
+    
+    <!-- HERO SECTION -->
+    <section class="hero" id="home">
+        <div class="container">
+            <h1>Your flight space in the Droneverse</h1>
+            <p>Countdown to 16 March 2026</p>
+        </div>
+    </section>
+    
+    <!-- COUNTDOWN SECTION -->
+    <section class="countdown">
+        <div class="container">
+            <h2 class="countdown-title">Launch Countdown</h2>
+            
+            <div class="counter-grid">
+                <div class="counter-item">
+                    <div class="counter-number" data-target="104">104</div>
+                    <div class="counter-label">Days</div>
                 </div>
-                <div class="countdown-item">
-                    <span id="hours" class="countdown-number">10</span>
-                    <span class="countdown-label">HOURS</span>
+                
+                <div class="counter-item">
+                    <div class="counter-number" data-target="02">02</div>
+                    <div class="counter-label">Hours</div>
                 </div>
-                <div class="countdown-item">
-                    <span id="minutes" class="countdown-number">04</span>
-                    <span class="countdown-label">MINUTES</span>
+                
+                <div class="counter-item">
+                    <div class="counter-number" data-target="47">47</div>
+                    <div class="counter-label">Minutes</div>
                 </div>
-                <div class="countdown-item">
-                    <span id="seconds" class="countdown-number">00</span>
-                    <span class="countdown-label">SECONDS</span>
+                
+                <div class="counter-item">
+                    <div class="counter-number" data-target="22">22</div>
+                    <div class="counter-label">Seconds</div>
                 </div>
             </div>
-        </main>
-    </div>
-
+        </div>
+    </section>
+    
+    <!-- FOOTER -->
     <footer>
         <div class="container">
-            <p>© 2025 HIVRA — Droneverse. Token: HIVR.</p>
+            <p class="footer-text">
+                © 2025 HIVRA – Droneverse. 
+                <span class="token-badge">Token: HIVR</span>
+            </p>
         </div>
     </footer>
-
-    <script src="script.js"></script>
+    
+    <script>
+        // Mobile Menu Functionality
+        const menuToggle = document.querySelector('.menu-toggle');
+        const mobileNav = document.querySelector('.mobile-nav');
+        const overlay = document.querySelector('.overlay');
+        
+        menuToggle.addEventListener('click', () => {
+            menuToggle.classList.toggle('active');
+            mobileNav.classList.toggle('active');
+            overlay.classList.toggle('active');
+            document.body.style.overflow = mobileNav.classList.contains('active') ? 'hidden' : '';
+        });
+        
+        overlay.addEventListener('click', () => {
+            menuToggle.classList.remove('active');
+            mobileNav.classList.remove('active');
+            overlay.classList.remove('active');
+            document.body.style.overflow = '';
+        });
+        
+        // Close menu when clicking on links
+        document.querySelectorAll('.mobile-nav-link').forEach(link => {
+            link.addEventListener('click', () => {
+                menuToggle.classList.remove('active');
+                mobileNav.classList.remove('active');
+                overlay.classList.remove('active');
+                document.body.style.overflow = '';
+            });
+        });
+        
+        // Animated counter (optional)
+        function animateCounter() {
+            const counters = document.querySelectorAll('.counter-number');
+            const speed = 200;
+            
+            counters.forEach(counter => {
+                const target = +counter.getAttribute('data-target');
+                const count = +counter.innerText;
+                const increment = target / speed;
+                
+                if (count < target) {
+                    counter.innerText = Math.ceil(count + increment);
+                    setTimeout(() => animateCounter(), 1);
+                } else {
+                    counter.innerText = target.toString().padStart(2, '0');
+                }
+            });
+        }
+        
+        // Start animation when page loads
+        window.addEventListener('load', () => {
+            setTimeout(animateCounter, 1000);
+        });
+        
+        // Handle resize
+        window.addEventListener('resize', () => {
+            if (window.innerWidth > 768) {
+                menuToggle.classList.remove('active');
+                mobileNav.classList.remove('active');
+                overlay.classList.remove('active');
+                document.body.style.overflow = '';
+            }
+        });
+    </script>
 </body>
 </html>
