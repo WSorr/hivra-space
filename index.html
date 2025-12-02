@@ -3,19 +3,60 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>HIVRA.SPACE</title>
+    <title>HIVRA.SPACE | Mission Control</title>
     <link rel="stylesheet" href="./css/main.css">
-    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🚀</text></svg>">
+    <link rel="icon" type="image/svg+xml" href="./assets/icons/logo.svg">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Exo+2:wght@300;400;500&display=swap" rel="stylesheet">
 </head>
 <body>
-    <div class="container">
-        <div class="rocket">🚀</div>
-        <h1>HIVRA.SPACE</h1>
-        <p><strong>Your Flight Space in the Droneverse</strong></p>
-        <p>Clean. Minimal. Functional.</p>
-        <p style="margin-top: 2rem; font-size: 0.9rem; color: #666;">
-            Site reset to clean state • <a href="https://github.com/WSorr/hivra-space" style="color: #00c8ff;">GitHub</a>
-        </p>
+    <div class="bg-animation">
+        <div id="stars"></div>
+        <div id="stars2"></div>
     </div>
+
+    <main class="container">
+        <header class="hero">
+            <div class="logo-shape"></div>
+            <h1 class="title-glitch">HIVRA.SPACE</h1>
+            <p class="tagline">Your Flight Space in the Droneverse</p>
+        </header>
+
+        <section class="countdown-section">
+            <h2>Mission Launch In Progress</h2>
+            <div class="countdown-timer" id="countdownTimer">
+                <div class="time-unit">
+                    <span id="days">000</span>
+                    <small>DAYS</small>
+                </div>
+                <div class="time-separator">:</div>
+                <div class="time-unit">
+                    <span id="hours">00</span>
+                    <small>HOURS</small>
+                </div>
+                <div class="time-separator">:</div>
+                <div class="time-unit">
+                    <span id="minutes">00</span>
+                    <small>MINUTES</small>
+                </div>
+                <div class="time-separator">:</div>
+                <div class="time-unit">
+                    <span id="seconds">00</span>
+                    <small>SECONDS</small>
+                </div>
+            </div>
+            <p class="countdown-target">Target Date: 16 March 2026</p>
+        </section>
+
+        <section class="cta-section">
+            <a href="./pages/borates.html" class="cta-button">
+                Access Borate Protocol
+                <span class="button-subtext">Web3 Module & Crypto Integration</span>
+            </a>
+            <p class="cta-note">Advanced platform for managing borate assets and decentralized operations.</p>
+        </section>
+    </main>
+
+    <script src="./js/countdown.js"></script>
+    <script src="./js/background.js"></script>
 </body>
 </html>
