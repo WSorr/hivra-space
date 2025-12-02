@@ -11,10 +11,6 @@ document.addEventListener('DOMContentLoaded', function() {
 
         if (timeLeft < 0) {
             clearInterval(countdownInterval);
-            daysEl.textContent = '000';
-            hoursEl.textContent = '00';
-            minutesEl.textContent = '00';
-            secondsEl.textContent = '00';
             return;
         }
 
