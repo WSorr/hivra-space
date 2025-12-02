@@ -3,184 +3,109 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>HIVRA Space | Droneverse</title>
-    <link rel="icon" href="favicon.ico">
-    <style>
-        /* RESET */
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        
-        /* BASIC STYLES */
-        body {
-            font-family: system-ui, -apple-system, sans-serif;
-            background: #0f172a;
-            color: white;
-            min-height: 100vh;
-        }
-        
-        /* HEADER */
-        header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 1rem 5%;
-            background: rgba(255, 255, 255, 0.05);
-            border-bottom: 1px solid #334155;
-        }
-        
-        .logo {
-            font-size: 1.5rem;
-            font-weight: bold;
-            color: #60a5fa;
-        }
-        
-        nav {
-            display: flex;
-            gap: 2rem;
-        }
-        
-        nav a {
-            color: #cbd5e1;
-            text-decoration: none;
-            transition: color 0.3s;
-        }
-        
-        nav a:hover {
-            color: #60a5fa;
-        }
-        
-        /* MAIN CONTENT */
-        main {
-            padding: 4rem 5%;
-            text-align: center;
-        }
-        
-        h1 {
-            font-size: clamp(2rem, 5vw, 3.5rem);
-            margin-bottom: 1rem;
-            background: linear-gradient(135deg, #60a5fa, #a78bfa);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-        
-        .subtitle {
-            font-size: 1.25rem;
-            color: #94a3b8;
-            margin-bottom: 3rem;
-        }
-        
-        /* COUNTER - SIMPLE AND CLEAN */
-        .counter-container {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 1rem;
-            max-width: 800px;
-            margin: 3rem auto;
-        }
-        
-        .counter-box {
-            background: #1e293b;
-            padding: 1.5rem;
-            border-radius: 1rem;
-            border: 1px solid #334155;
-        }
-        
-        .number {
-            font-size: clamp(2rem, 4vw, 3rem);
-            font-weight: bold;
-            color: #60a5fa;
-            margin-bottom: 0.5rem;
-        }
-        
-        .label {
-            font-size: 0.9rem;
-            color: #94a3b8;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-        
-        /* FOOTER */
-        footer {
-            text-align: center;
-            padding: 2rem;
-            color: #64748b;
-            border-top: 1px solid #334155;
-            margin-top: 3rem;
-        }
-        
-        .token {
-            display: inline-block;
-            background: #3b82f6;
-            color: white;
-            padding: 0.25rem 0.75rem;
-            border-radius: 1rem;
-            font-size: 0.9rem;
-            margin-left: 0.5rem;
-        }
-        
-        /* RESPONSIVE */
-        @media (max-width: 768px) {
-            header { padding: 1rem; }
-            nav { gap: 1rem; font-size: 0.9rem; }
-            
-            .counter-container {
-                grid-template-columns: repeat(2, 1fr);
-                gap: 0.75rem;
-                padding: 0 1rem;
-            }
-            
-            .counter-box { padding: 1rem; }
-            .number { font-size: 1.75rem; }
-        }
-        
-        @media (max-width: 480px) {
-            nav { display: none; }
-            .counter-container {
-                grid-template-columns: 1fr;
-                max-width: 300px;
-            }
-            
-            h1 { font-size: 1.75rem; }
-            .subtitle { font-size: 1rem; }
-        }
-    </style>
+    <title>HIVRA.SPACE - Your Flight Space in the Droneverse</title>
+    <link rel="stylesheet" href="./css/main.css">
+    <link rel="icon" href="./favicon.ico" type="image/x-icon">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Exo+2:wght@300;400;500;600&display=swap" rel="stylesheet">
 </head>
 <body>
-    <header>
-        <div class="logo">HIVRA SPACE</div>
-        <nav>
-            <a href="#home">Home</a>
-            <a href="#droneverse">Droneverse</a>
-            <a href="#token">Token</a>
-            <a href="#contact">Contact</a>
-        </nav>
-    </header>
+    <!-- Крутой анимированный фон -->
+    <div class="bg-animation">
+        <div id="stars"></div>
+        <div id="stars2"></div>
+        <div id="stars3"></div>
+    </div>
+
+    <!-- Основной контент -->
+    <div class="container">
+        <header class="site-header">
+            <div class="logo">🚀</div>
+            <h1>HIVRA.SPACE</h1>
+            <p class="tagline">Your Flight Space in the Droneverse</p>
+            <p style="color: #8080a0; margin-top: 0.5rem;">Next-Generation Drone Operations Platform</p>
+        </header>
+
+        <main class="main-content">
+            <section class="section">
+                <h2 class="section-title">🛸 Mission Control</h2>
+                <p>Take full command of your drone fleet with our intuitive mission control interface. Real-time telemetry, automated flight logs, and instant alert systems ensure you're always in control.</p>
+                <ul style="margin-top: 1rem; padding-left: 1.5rem; color: #c0c0e0;">
+                    <li>Multi-drone synchronization</li>
+                    <li>Live HD video streaming</li>
+                    <li>Automated compliance reporting</li>
+                </ul>
+            </section>
+
+            <section class="section">
+                <h2 class="section-title">🗺️ 3D Flight Planning</h2>
+                <p>Design complex flight paths in an immersive 3D environment. Our terrain analysis, weather simulation, and obstacle detection systems help you plan the perfect mission.</p>
+                <div style="margin-top: 1.5rem; padding: 1rem; background: rgba(0,0,0,0.3); border-radius: 10px;">
+                    <strong style="color: var(--primary);">Featured Tool:</strong> AI-powered route optimization that saves up to 40% in battery consumption.
+                </div>
+            </section>
+
+            <section class="section">
+                <h2 class="section-title">🌐 Pilot Network</h2>
+                <p>Connect with certified pilots worldwide. Share data, collaborate on commercial projects, and access the largest repository of verified flight data.</p>
+                <div style="display: inline-flex; gap: 1rem; margin-top: 1.5rem; flex-wrap: wrap;">
+                    <span style="background: rgba(0,200,255,0.1); padding: 0.5rem 1rem; border-radius: 20px;">Commercial Pilots</span>
+                    <span style="background: rgba(157,78,221,0.1); padding: 0.5rem 1rem; border-radius: 20px;">Mapping Specialists</span>
+                    <span style="background: rgba(255,255,255,0.1); padding: 0.5rem 1rem; border-radius: 20px;">Search & Rescue</span>
+                </div>
+            </section>
+
+            <section class="section" style="text-align: center; background: linear-gradient(135deg, rgba(0,200,255,0.1), rgba(157,78,221,0.1));">
+                <h2 class="section-title">🚀 Ready for Takeoff?</h2>
+                <p style="max-width: 600px; margin: 1rem auto 1.5rem; font-size: 1.1rem;">
+                    Join the beta program and be among the first to experience the future of professional drone operations.
+                </p>
+                <button onclick="showBetaAlert()" style="
+                    background: linear-gradient(90deg, var(--primary), var(--secondary));
+                    color: white;
+                    border: none;
+                    padding: 1rem 2.5rem;
+                    border-radius: 50px;
+                    font-family: 'Orbitron', monospace;
+                    font-weight: 700;
+                    font-size: 1.1rem;
+                    cursor: pointer;
+                    transition: transform 0.3s, box-shadow 0.3s;
+                    margin-top: 0.5rem;
+                ">
+                    Join Beta Waitlist
+                </button>
+                <p style="margin-top: 1.5rem; color: #a0a0c0; font-size: 0.9rem;">
+                    Limited spots available • Early access to all 9 platform modules
+                </p>
+            </section>
+        </main>
+
+        <footer class="site-footer">
+            <p>© <span id="current-year">2024</span> HIVRA.SPACE. All flight operations subject to local regulations.</p>
+            <p style="margin-top: 0.5rem;">
+                <a href="https://github.com/WSorr/hivra-space" style="color: var(--primary); text-decoration: none;">
+                    View on GitHub
+                </a> • 
+                <a href="#" style="color: var(--gray); text-decoration: none;" onclick="showBetaAlert(); return false;">
+                    Contact
+                </a>
+            </p>
+        </footer>
+    </div>
+
+    <!-- Подключаем наши скрипты -->
+    <script src="./js/main.js"></script>
     
-    <main>
-        <h1>Your flight space in the Droneverse</h1>
-        <p class="subtitle">Countdown to 16 March 2026</p>
+    <!-- Вспомогательные функции -->
+    <script>
+        function showBetaAlert() {
+            alert('🚀 Thank you for your interest!\n\nThe HIVRA.SPACE beta program will open soon. Check back here or follow our GitHub repository for updates.');
+        }
         
-        <div class="counter-container">
-            <div class="counter-box">
-                <div class="number">104</div>
-                <div class="label">Days</div>
-            </div>
-            <div class="counter-box">
-                <div class="number">02</div>
-                <div class="label">Hours</div>
-            </div>
-            <div class="counter-box">
-                <div class="number">47</div>
-                <div class="label">Minutes</div>
-            </div>
-            <div class="counter-box">
-                <div class="number">22</div>
-                <div class="label">Seconds</div>
-            </div>
-        </div>
-    </main>
-    
-    <footer>
-        <p>© 2025 HIVRA – Droneverse. <span class="token">Token: HIVR</span></p>
-    </footer>
+        // Простая проверка загрузки
+        window.addEventListener('load', () => {
+            console.log('🌌 Site fully loaded with all assets');
+        });
+    </script>
 </body>
 </html>

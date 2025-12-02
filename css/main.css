@@ -1,0 +1,201 @@
+/* HIVRA.SPACE - Main Styles */
+:root {
+    --primary: #00c8ff;
+    --secondary: #9d4edd;
+    --dark: #0a0a14;
+    --darker: #050510;
+    --light: #f0f0f0;
+    --gray: #a0a0c0;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html, body {
+    width: 100%;
+    height: 100%;
+    overflow-x: hidden;
+}
+
+/* === КРУТОЙ ФОН (ЗВЕЗДЫ/ЧАСТИЦЫ) === */
+.bg-animation {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -999;
+    background: linear-gradient(135deg, var(--darker) 0%, var(--dark) 50%, #1a1a2e 100%);
+    overflow: hidden;
+}
+
+#stars {
+    width: 1px;
+    height: 1px;
+    background: transparent;
+    box-shadow: 1007px 32px #fff, 285px 916px #fff, 1089px 1090px #fff, 1482px 1757px #fff, 
+                267px 1963px #fff, 1469px 1993px #fff, 327px 1629px #fff, 1099px 1973px #fff;
+    animation: animStar 50s linear infinite;
+}
+
+#stars:after {
+    content: " ";
+    position: absolute;
+    top: 2000px;
+    width: 1px;
+    height: 1px;
+    background: transparent;
+    box-shadow: 1007px 32px #fff, 285px 916px #fff, 1089px 1090px #fff, 1482px 1757px #fff,
+                267px 1963px #fff, 1469px 1993px #fff, 327px 1629px #fff, 1099px 1973px #fff;
+}
+
+#stars2 {
+    width: 2px;
+    height: 2px;
+    background: transparent;
+    box-shadow: 149px 1781px #fff, 1606px 1544px #fff, 289px 1259px #fff, 1818px 153px #fff,
+                1630px 1455px #fff, 1331px 1942px #fff, 333px 970px #fff, 325px 1894px #fff;
+    animation: animStar 100s linear infinite;
+}
+
+#stars2:after {
+    content: " ";
+    position: absolute;
+    top: 2000px;
+    width: 2px;
+    height: 2px;
+    background: transparent;
+    box-shadow: 149px 1781px #fff, 1606px 1544px #fff, 289px 1259px #fff, 1818px 153px #fff,
+                1630px 1455px #fff, 1331px 1942px #fff, 333px 970px #fff, 325px 1894px #fff;
+}
+
+#stars3 {
+    width: 3px;
+    height: 3px;
+    background: transparent;
+    box-shadow: 371px 1956px #fff, 120px 1576px #fff, 1201px 1707px #fff, 714px 247px #fff,
+                1421px 1764px #fff, 1309px 1923px #fff, 1842px 1647px #fff, 1947px 1031px #fff;
+    animation: animStar 150s linear infinite;
+}
+
+#stars3:after {
+    content: " ";
+    position: absolute;
+    top: 2000px;
+    width: 3px;
+    height: 3px;
+    background: transparent;
+    box-shadow: 371px 1956px #fff, 120px 1576px #fff, 1201px 1707px #fff, 714px 247px #fff,
+                1421px 1764px #fff, 1309px 1923px #fff, 1842px 1647px #fff, 1947px 1031px #fff;
+}
+
+@keyframes animStar {
+    from { transform: translateY(0px); }
+    to { transform: translateY(-2000px); }
+}
+
+/* === ОСНОВНОЙ КОНТЕНТ === */
+body {
+    color: var(--light);
+    font-family: 'Exo 2', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    line-height: 1.6;
+    min-height: 100vh;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem;
+    position: relative;
+    z-index: 1;
+}
+
+/* Хедер/логотип */
+.site-header {
+    text-align: center;
+    padding: 3rem 0 2rem;
+    border-bottom: 1px solid rgba(0, 200, 255, 0.2);
+    margin-bottom: 4rem;
+}
+
+.logo {
+    font-size: 4.5rem;
+    margin-bottom: 1rem;
+    display: inline-block;
+    animation: float 3s ease-in-out infinite;
+}
+
+@keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-15px); }
+}
+
+h1 {
+    font-family: 'Orbitron', monospace;
+    font-size: 3.5rem;
+    font-weight: 900;
+    background: linear-gradient(90deg, var(--primary), var(--secondary));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin-bottom: 0.5rem;
+    letter-spacing: 1px;
+}
+
+.tagline {
+    font-size: 1.8rem;
+    color: var(--gray);
+    font-weight: 300;
+    margin-bottom: 0.5rem;
+}
+
+/* Основные разделы */
+.main-content {
+    display: grid;
+    gap: 3rem;
+}
+
+.section {
+    background: rgba(16, 16, 32, 0.7);
+    border: 1px solid rgba(0, 200, 255, 0.15);
+    border-radius: 20px;
+    padding: 2.5rem;
+    backdrop-filter: blur(10px);
+    transition: transform 0.3s, border-color 0.3s;
+}
+
+.section:hover {
+    transform: translateY(-5px);
+    border-color: var(--primary);
+}
+
+.section-title {
+    font-family: 'Orbitron', monospace;
+    color: var(--primary);
+    font-size: 2rem;
+    margin-bottom: 1.5rem;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+/* Футер */
+.site-footer {
+    text-align: center;
+    margin-top: 5rem;
+    padding-top: 2rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    color: var(--gray);
+    font-size: 0.9rem;
+}
+
+/* Адаптивность */
+@media (max-width: 768px) {
+    .container { padding: 1rem; }
+    h1 { font-size: 2.5rem; }
+    .tagline { font-size: 1.3rem; }
+    .logo { font-size: 3.5rem; }
+    .section { padding: 1.5rem; }
+}
