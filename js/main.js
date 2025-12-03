@@ -1,4 +1,4 @@
-// Полнофункциональная система переводов
+// Full translation system with fallback
 const translations = {
     en: {
         "title": "HIVRA",
@@ -62,7 +62,7 @@ const translations = {
     }
 };
 
-// Рабочий таймер
+// Working countdown timer
 function updateCountdown() {
     const targetDate = new Date('2026-03-16T00:00:00').getTime();
     const now = new Date().getTime();
@@ -97,22 +97,24 @@ function updateCountdown() {
     if (secondsEl) secondsEl.textContent = String(seconds).padStart(2, '0');
 }
 
-// Применяем перевод
+// Apply translation
 function applyTranslation(lang) {
     if (!translations[lang]) return;
     
     const t = translations[lang];
     
-    // Обновляем все элементы с data-translate
+    // Update all elements with data-translate
     document.querySelectorAll('[data-translate]').forEach(el => {
         const key = el.getAttribute('data-translate');
-        if (t[key]) el.textContent = t[key];
+        if (t[key]) {
+            el.textContent = t[key];
+        }
     });
     
-    // Сохраняем выбор
+    // Save to localStorage
     localStorage.setItem('hivra_lang', lang);
     
-    // Обновляем активную кнопку
+    // Update active button
     document.querySelectorAll('.lang-btn').forEach(btn => {
         btn.classList.remove('active');
         if (btn.dataset.lang === lang) {
@@ -121,17 +123,19 @@ function applyTranslation(lang) {
     });
 }
 
-// Инициализация
+// Initialize
 document.addEventListener('DOMContentLoaded', function() {
-    // Запускаем таймер
-    updateCountdown();
-    setInterval(updateCountdown, 1000);
+    console.log('HIVRA.SPACE initializing...');
     
-    // Восстанавливаем язык
+    // 1. Start countdown
+    updateCountdown();
+    const timerInterval = setInterval(updateCountdown, 1000);
+    
+    // 2. Set language
     const savedLang = localStorage.getItem('hivra_lang') || 'en';
     applyTranslation(savedLang);
     
-    // Вешаем обработчики на кнопки языков
+    // 3. Language switcher events
     document.querySelectorAll('.lang-btn').forEach(btn => {
         btn.addEventListener('click', function() {
             const lang = this.dataset.lang;
@@ -140,5 +144,7 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
     
-    console.log('HIVRA.SPACE loaded with real translations');
+    // 4. Debug info
+    console.log('Timer interval ID:', timerInterval);
+    console.log('Current language:', savedLang);
 });

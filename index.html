@@ -11,30 +11,32 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
+    <!-- FIXED: Language switcher - now properly positioned -->
+    <div class="lang-switcher">
+        <button class="lang-btn active" data-lang="en">EN</button>
+        <button class="lang-btn" data-lang="de">DE</button>
+        <button class="lang-btn" data-lang="fr">FR</button>
+        <button class="lang-btn" data-lang="es">ES</button>
+    </div>
+
     <div class="container">
-        <!-- Языковой переключатель -->
-        <div class="lang-switcher">
-            <button class="lang-btn active" data-lang="en">EN</button>
-            <button class="lang-btn" data-lang="de">DE</button>
-            <button class="lang-btn" data-lang="fr">FR</button>
-            <button class="lang-btn" data-lang="es">ES</button>
-        </div>
+        <!-- FIXED: Main header with navigation -->
+        <header class="main-header">
+            <nav class="nav-main">
+                <a href="#" class="nav-item" data-translate="nav_concept">CONCEPT</a>
+                <a href="./pages/donations.html" class="nav-item" data-translate="nav_donate">DONATE</a>
+                <a href="#" class="nav-item" data-translate="nav_dashboard">DASHBOARD</a>
+            </nav>
+        </header>
 
-        <!-- Навигация -->
-        <nav class="nav-main">
-            <a href="#" class="nav-item" data-translate="nav_concept">CONCEPT</a>
-            <a href="./pages/donations.html" class="nav-item" data-translate="nav_donate">DONATE</a>
-            <a href="#" class="nav-item" data-translate="nav_dashboard">DASHBOARD</a>
-        </nav>
-
-        <!-- Главный контент -->
+        <!-- Main content -->
         <main class="main-content">
             <div class="hero">
                 <h1 class="title" data-translate="title">HIVRA</h1>
                 <p class="subtitle" data-translate="tagline">YOUR FLIGHT SPACE IN THE DRONVERSE</p>
             </div>
 
-            <!-- Таймер -->
+            <!-- TradingView style countdown -->
             <div class="tv-countdown">
                 <div class="countdown-header" data-translate="countdown_label">LAUNCH COUNTDOWN</div>
                 <div class="countdown-timer">
@@ -61,7 +63,7 @@
                 <div class="countdown-date" data-translate="target_date">Target: March 16, 2026</div>
             </div>
 
-            <!-- Кнопки -->
+            <!-- Action buttons -->
             <div class="action-buttons">
                 <a href="#" class="btn btn-primary" data-translate="cta_explore">
                     <i class="fas fa-rocket"></i>
@@ -73,7 +75,7 @@
                 </a>
             </div>
 
-            <!-- Футер -->
+            <!-- Footer -->
             <footer class="footer">
                 <p>© 2025 HIVRA.SPACE | <a href="https://github.com/WSorr/hivra-space">GitHub</a></p>
             </footer>
