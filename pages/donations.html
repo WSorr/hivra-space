@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Web3 Donations | HIVRA</title>
+    <link rel="stylesheet" href="../css/main.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        .donation-container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        .donation-header {
+            text-align: center;
+            margin-bottom: 40px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid var(--tv-border-primary);
+        }
+        
+        .donation-title {
+            font-size: 42px;
+            font-weight: 700;
+            margin-bottom: 10px;
+            background: linear-gradient(135deg, var(--tv-accent-blue), var(--tv-accent-green));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .donation-subtitle {
+            color: var(--tv-text-secondary);
+            font-size: 16px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+        
+        .web3-card {
+            background: var(--tv-bg-secondary);
+            border: 1px solid var(--tv-border-primary);
+            border-radius: 16px;
+            padding: 30px;
+            margin-bottom: 30px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+        }
+        
+        .web3-title {
+            color: var(--tv-accent-blue);
+            font-size: 24px;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .crypto-section {
+            margin: 25px 0;
+        }
+        
+        .crypto-label {
+            color: var(--tv-text-primary);
+            font-size: 16px;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .crypto-address {
+            background: var(--tv-bg-tertiary);
+            border: 1px dashed var(--tv-border-primary);
+            padding: 15px;
+            border-radius: 8px;
+            font-family: 'Courier New', monospace;
+            font-size: 14px;
+            color: var(--tv-text-primary);
+            word-break: break-all;
+            margin-top: 8px;
+        }
+        
+        .wallet-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background: linear-gradient(135deg, var(--tv-accent-blue), var(--tv-accent-green));
+            color: white;
+            padding: 15px 30px;
+            border-radius: 10px;
+            text-decoration: none;
+            font-weight: 600;
+            border: none;
+            cursor: pointer;
+            font-size: 16px;
+            margin-top: 20px;
+            transition: transform 0.2s;
+        }
+        
+        .wallet-btn:hover {
+            transform: translateY(-2px);
+        }
+        
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            color: var(--tv-accent-blue);
+            text-decoration: none;
+            font-weight: 500;
+            margin-top: 30px;
+            padding: 10px 20px;
+            border: 1px solid var(--tv-border-primary);
+            border-radius: 8px;
+            transition: all 0.2s;
+        }
+        
+        .back-link:hover {
+            background: var(--tv-bg-tertiary);
+            border-color: var(--tv-accent-blue);
+        }
+        
+        .security-note {
+            color: var(--tv-text-secondary);
+            font-size: 14px;
+            margin-top: 25px;
+            padding: 15px;
+            background: var(--tv-bg-tertiary);
+            border-radius: 8px;
+            border-left: 4px solid var(--tv-accent-green);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Языковой переключатель -->
+        <div class="lang-switcher">
+            <button class="lang-btn active" data-lang="en">EN</button>
+            <button class="lang-btn" data-lang="de">DE</button>
+            <button class="lang-btn" data-lang="fr">FR</button>
+            <button class="lang-btn" data-lang="es">ES</button>
+        </div>
+
+        <!-- Навигация -->
+        <nav class="nav-main">
+            <a href="../index.html" class="nav-item">← BACK TO MAIN</a>
+            <a href="#" class="nav-item">DONATE</a>
+            <a href="#" class="nav-item">STATISTICS</a>
+        </nav>
+
+        <main class="donation-container">
+            <!-- Заголовок -->
+            <header class="donation-header">
+                <h1 class="donation-title">WEB3 DONATIONS</h1>
+                <p class="donation-subtitle">Support HIVRA with Cryptocurrency</p>
+            </header>
+
+            <!-- Web3 модуль -->
+            <section class="web3-card">
+                <h2 class="web3-title">
+                    <i class="fas fa-wallet"></i>
+                    Cryptocurrency Donation Addresses
+                </h2>
+                
+                <p style="color: var(--tv-text-secondary); margin-bottom: 25px;">
+                    Send cryptocurrency to any of the addresses below. All transactions are recorded on the blockchain.
+                </p>
+                
+                <!-- Ethereum -->
+                <div class="crypto-section">
+                    <div class="crypto-label">
+                        <i class="fab fa-ethereum" style="color: #627eea;"></i>
+                        Ethereum (ETH / ERC-20)
+                    </div>
+                    <div class="crypto-address">
+                        0x742d35Cc6634C0532925a3b844Bc9e97F1E2A8C5
+                    </div>
+                </div>
+                
+                <!-- Bitcoin -->
+                <div class="crypto-section">
+                    <div class="crypto-label">
+                        <i class="fab fa-bitcoin" style="color: #f7931a;"></i>
+                        Bitcoin (BTC)
+                    </div>
+                    <div class="crypto-address">
+                        bc1qxy2kgdygjrsqtzq2n0yrfq4a2v6f2u8vz8hq3n
+                    </div>
+                </div>
+                
+                <!-- Solana -->
+                <div class="crypto-section">
+                    <div class="crypto-label">
+                        <i class="fab fa-solana" style="color: #00ffa3;"></i>
+                        Solana (SOL / SPL)
+                    </div>
+                    <div class="crypto-address">
+                        7i5KP4gL8vV7cG5J5p5J5p5J5p5J5p5J5p5J5p5J5p5
+                    </div>
+                </div>
+                
+                <!-- TON -->
+                <div class="crypto-section">
+                    <div class="crypto-label">
+                        <i class="fas fa-bolt" style="color: #0088cc;"></i>
+                        TON (The Open Network)
+                    </div>
+                    <div class="crypto-address">
+                        EQD_________________________________X7yP
+                    </div>
+                </div>
+
+                <!-- Кнопка подключения кошелька -->
+                <button class="wallet-btn" onclick="connectWallet()">
+                    <i class="fas fa-plug"></i>
+                    Connect Web3 Wallet
+                </button>
+                
+                <!-- Примечание безопасности -->
+                <div class="security-note">
+                    <i class="fas fa-shield-alt"></i>
+                    <strong>Security Notice:</strong> All addresses are verified. Always double-check the address before sending funds. HIVRA will never ask for your private keys.
+                </div>
+            </section>
+
+            <!-- Ссылка назад -->
+            <a href="../index.html" class="back-link">
+                <i class="fas fa-arrow-left"></i>
+                Return to Main Page
+            </a>
+        </main>
+    </div>
+
+    <script src="../js/main.js"></script>
+    <script>
+        // Web3 wallet connection simulation
+        function connectWallet() {
+            alert('🔐 Web3 Wallet Connection\n\nIn a real implementation, this would:\n1. Connect to MetaMask/Phantom/WalletConnect\n2. Request transaction signing\n3. Show live balance and network\n\nFor now, use the addresses above to send crypto.');
+        }
+        
+        // Initialize language switcher
+        document.addEventListener('DOMContentLoaded', function() {
+            const savedLang = localStorage.getItem('hivra_lang') || 'en';
+            document.querySelectorAll('.lang-btn').forEach(btn => {
+                btn.classList.remove('active');
+                if (btn.dataset.lang === savedLang) {
+                    btn.classList.add('active');
+                }
+                
+                btn.addEventListener('click', function() {
+                    const lang = this.dataset.lang;
+                    localStorage.setItem('hivra_lang', lang);
+                    alert(`Language switched to: ${lang.toUpperCase()}\n\nTranslation would load here.`);
+                });
+            });
+        });
+    </script>
+</body>
+</html>
