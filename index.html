@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>HIVRA | The Digital Beeswarm</title>
+    <title>HIVRA | Your Flight Space in the Dronverse</title>
     <link rel="stylesheet" href="./css/main.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -22,52 +22,52 @@
 
         <!-- Навигация -->
         <nav class="nav-main">
-            <a href="#" class="nav-item">CONCEPT</a>
-            <a href="./pages/donations.html" class="nav-item">DONATE</a>
-            <a href="#" class="nav-item">DASHBOARD</a>
+            <a href="#" class="nav-item" data-translate="nav_concept">CONCEPT</a>
+            <a href="./pages/donations.html" class="nav-item" data-translate="nav_donate">DONATE</a>
+            <a href="#" class="nav-item" data-translate="nav_dashboard">DASHBOARD</a>
         </nav>
 
         <!-- Главный контент -->
         <main class="main-content">
             <div class="hero">
-                <h1 class="title">HIVRA</h1>
-                <p class="subtitle">THE DIGITAL BEESWARM</p>
+                <h1 class="title" data-translate="title">HIVRA</h1>
+                <p class="subtitle" data-translate="tagline">YOUR FLIGHT SPACE IN THE DRONVERSE</p>
             </div>
 
-            <!-- Таймер TradingView стиль -->
+            <!-- Таймер -->
             <div class="tv-countdown">
-                <div class="countdown-header">LAUNCH COUNTDOWN</div>
+                <div class="countdown-header" data-translate="countdown_label">LAUNCH COUNTDOWN</div>
                 <div class="countdown-timer">
                     <div class="time-block">
                         <div class="time-value" id="days">000</div>
-                        <div class="time-label">DAYS</div>
+                        <div class="time-label" data-translate="timer_days">DAYS</div>
                     </div>
                     <div class="time-separator">:</div>
                     <div class="time-block">
                         <div class="time-value" id="hours">00</div>
-                        <div class="time-label">HOURS</div>
+                        <div class="time-label" data-translate="timer_hours">HOURS</div>
                     </div>
                     <div class="time-separator">:</div>
                     <div class="time-block">
                         <div class="time-value" id="minutes">00</div>
-                        <div class="time-label">MINUTES</div>
+                        <div class="time-label" data-translate="timer_minutes">MINUTES</div>
                     </div>
                     <div class="time-separator">:</div>
                     <div class="time-block">
                         <div class="time-value" id="seconds">00</div>
-                        <div class="time-label">SECONDS</div>
+                        <div class="time-label" data-translate="timer_seconds">SECONDS</div>
                     </div>
                 </div>
-                <div class="countdown-date">Target: March 16, 2026</div>
+                <div class="countdown-date" data-translate="target_date">Target: March 16, 2026</div>
             </div>
 
-            <!-- Кнопки действий -->
+            <!-- Кнопки -->
             <div class="action-buttons">
-                <a href="#" class="btn btn-primary">
+                <a href="#" class="btn btn-primary" data-translate="cta_explore">
                     <i class="fas fa-rocket"></i>
                     EXPLORE CONCEPT
                 </a>
-                <a href="./pages/donations.html" class="btn btn-secondary">
+                <a href="./pages/donations.html" class="btn btn-secondary" data-translate="cta_support">
                     <i class="fas fa-donate"></i>
                     SUPPORT THE VERSE
                 </a>
@@ -80,20 +80,6 @@
         </main>
     </div>
 
-    <!-- Подключаем РАБОЧИЙ скрипт -->
     <script src="./js/main.js"></script>
-    
-    <!-- Инлайн проверка -->
-    <script>
-        // Простая проверка что таймер работает
-        setTimeout(() => {
-            const daysEl = document.getElementById('days');
-            if (daysEl && daysEl.textContent === '000') {
-                console.warn('⚠️ Timer might not be updating. Check js/main.js');
-            } else if (daysEl) {
-                console.log('✅ Timer is working. Days:', daysEl.textContent);
-            }
-        }, 2000);
-    </script>
 </body>
 </html>

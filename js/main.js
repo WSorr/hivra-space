@@ -1,10 +1,73 @@
-// Working Countdown Timer - FIXED!
+// Полнофункциональная система переводов
+const translations = {
+    en: {
+        "title": "HIVRA",
+        "tagline": "YOUR FLIGHT SPACE IN THE DRONVERSE",
+        "countdown_label": "LAUNCH COUNTDOWN",
+        "timer_days": "DAYS",
+        "timer_hours": "HOURS",
+        "timer_minutes": "MINUTES",
+        "timer_seconds": "SECONDS",
+        "target_date": "Target: March 16, 2026",
+        "cta_explore": "EXPLORE CONCEPT",
+        "cta_support": "SUPPORT THE VERSE",
+        "nav_concept": "CONCEPT",
+        "nav_donate": "DONATE",
+        "nav_dashboard": "DASHBOARD"
+    },
+    de: {
+        "title": "HIVRA",
+        "tagline": "DEIN FLUGRAUM IM DRONVERSE",
+        "countdown_label": "STARTCOUNTDOWN",
+        "timer_days": "TAGE",
+        "timer_hours": "STUNDEN",
+        "timer_minutes": "MINUTEN",
+        "timer_seconds": "SEKUNDEN",
+        "target_date": "Ziel: 16. März 2026",
+        "cta_explore": "KONZEPT ENTDECKEN",
+        "cta_support": "VERSE UNTERSTÜTZEN",
+        "nav_concept": "KONZEPT",
+        "nav_donate": "SPENDEN",
+        "nav_dashboard": "DASHBOARD"
+    },
+    fr: {
+        "title": "HIVRA",
+        "tagline": "VOTRE ESPACE DE VOL DANS LE DRONVERSE",
+        "countdown_label": "COMPTE À REBOURS",
+        "timer_days": "JOURS",
+        "timer_hours": "HEURES",
+        "timer_minutes": "MINUTES",
+        "timer_seconds": "SECONDES",
+        "target_date": "Cible : 16 mars 2026",
+        "cta_explore": "EXPLORER LE CONCEPT",
+        "cta_support": "SOUTENIR LE VERSE",
+        "nav_concept": "CONCEPT",
+        "nav_donate": "FAIRE UN DON",
+        "nav_dashboard": "TABLEAU DE BORD"
+    },
+    es: {
+        "title": "HIVRA",
+        "tagline": "TU ESPACIO DE VUELO EN EL DRONVERSE",
+        "countdown_label": "CUENTA REGRESIVA",
+        "timer_days": "DÍAS",
+        "timer_hours": "HORAS",
+        "timer_minutes": "MINUTOS",
+        "timer_seconds": "SEGUNDOS",
+        "target_date": "Objetivo: 16 de marzo de 2026",
+        "cta_explore": "EXPLORAR CONCEPTO",
+        "cta_support": "APOYAR EL VERSE",
+        "nav_concept": "CONCEPTO",
+        "nav_donate": "DONAR",
+        "nav_dashboard": "TABLERO"
+    }
+};
+
+// Рабочий таймер
 function updateCountdown() {
     const targetDate = new Date('2026-03-16T00:00:00').getTime();
     const now = new Date().getTime();
     const timeLeft = targetDate - now;
     
-    // Если дата уже прошла
     if (timeLeft < 0) {
         document.querySelector('.tv-countdown').innerHTML = `
             <div class="countdown-header">PLATFORM LIVE</div>
@@ -18,13 +81,11 @@ function updateCountdown() {
         return;
     }
     
-    // Рассчёт дней, часов, минут, секунд
     const days = Math.floor(timeLeft / (1000 * 60 * 60 * 24));
     const hours = Math.floor((timeLeft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
     const minutes = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));
     const seconds = Math.floor((timeLeft % (1000 * 60)) / 1000);
     
-    // Обновляем DOM элементы (они должны существовать в index.html!)
     const daysEl = document.getElementById('days');
     const hoursEl = document.getElementById('hours');
     const minutesEl = document.getElementById('minutes');
@@ -36,63 +97,48 @@ function updateCountdown() {
     if (secondsEl) secondsEl.textContent = String(seconds).padStart(2, '0');
 }
 
-// Simple Language Switcher - FIXED!
-function initLanguageSwitcher() {
-    const langButtons = document.querySelectorAll('.lang-btn');
+// Применяем перевод
+function applyTranslation(lang) {
+    if (!translations[lang]) return;
     
-    langButtons.forEach(button => {
-        button.addEventListener('click', function() {
-            // Убираем активный класс у всех кнопок
-            langButtons.forEach(btn => btn.classList.remove('active'));
-            
-            // Добавляем активный класс текущей кнопке
-            this.classList.add('active');
-            
-            // Сохраняем выбор в localStorage
+    const t = translations[lang];
+    
+    // Обновляем все элементы с data-translate
+    document.querySelectorAll('[data-translate]').forEach(el => {
+        const key = el.getAttribute('data-translate');
+        if (t[key]) el.textContent = t[key];
+    });
+    
+    // Сохраняем выбор
+    localStorage.setItem('hivra_lang', lang);
+    
+    // Обновляем активную кнопку
+    document.querySelectorAll('.lang-btn').forEach(btn => {
+        btn.classList.remove('active');
+        if (btn.dataset.lang === lang) {
+            btn.classList.add('active');
+        }
+    });
+}
+
+// Инициализация
+document.addEventListener('DOMContentLoaded', function() {
+    // Запускаем таймер
+    updateCountdown();
+    setInterval(updateCountdown, 1000);
+    
+    // Восстанавливаем язык
+    const savedLang = localStorage.getItem('hivra_lang') || 'en';
+    applyTranslation(savedLang);
+    
+    // Вешаем обработчики на кнопки языков
+    document.querySelectorAll('.lang-btn').forEach(btn => {
+        btn.addEventListener('click', function() {
             const lang = this.dataset.lang;
-            localStorage.setItem('hivra_lang', lang);
-            
-            // Показываем подтверждение (в реальном сайте здесь будет перевод)
-            console.log(`Language switched to: ${lang.toUpperCase()}`);
-            alert(`Language set to: ${lang.toUpperCase()}\n\nIn a real implementation, all text would translate here.`);
+            applyTranslation(lang);
+            console.log(`Language switched to: ${lang}`);
         });
     });
     
-    // Восстанавливаем сохранённый язык
-    const savedLang = localStorage.getItem('hivra_lang');
-    if (savedLang) {
-        langButtons.forEach(btn => {
-            btn.classList.remove('active');
-            if (btn.dataset.lang === savedLang) {
-                btn.classList.add('active');
-            }
-        });
-    }
-}
-
-// Initialize everything when page loads
-document.addEventListener('DOMContentLoaded', function() {
-    console.log('HIVRA.SPACE initializing...');
-    
-    // 1. Start the countdown immediately
-    updateCountdown();
-    
-    // 2. Update countdown every second
-    const countdownInterval = setInterval(updateCountdown, 1000);
-    
-    // 3. Initialize language switcher
-    initLanguageSwitcher();
-    
-    // 4. Debug info
-    console.log('Countdown interval started:', countdownInterval);
-    console.log('Target date: 2026-03-16');
-    console.log('Language switcher initialized');
-    
-    // 5. Show current countdown values in console
-    setTimeout(() => {
-        const now = new Date();
-        const target = new Date('2026-03-16T00:00:00');
-        const daysLeft = Math.floor((target - now) / (1000 * 60 * 60 * 24));
-        console.log(`Days until launch: ${daysLeft}`);
-    }, 100);
+    console.log('HIVRA.SPACE loaded with real translations');
 });
